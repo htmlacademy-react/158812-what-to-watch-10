@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
 
 const FILM_CARD = {
-  TITLE: 'Thor: Love and Thunder',
-  GENRE: 'Adventure',
-  YEAR: 2022,
+  TITLE: 'The Grand Budapest Hotel',
+  GENRE: 'Drama',
+  YEAR: 2014,
 };
 
 const root = ReactDOM.createRoot(
