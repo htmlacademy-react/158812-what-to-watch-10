@@ -1,3 +1,5 @@
+import FilmCard from '../../components/film-card/film-card';
+
 type mainScreenProps = {
   title: string,
   genre: string,
@@ -138,7 +140,22 @@ function MainScreen({title, genre, year}: mainScreenProps): JSX.Element {
           </ul>
 
           <div className="catalog__films-list">
-
+            <FilmCard />
+            <FilmCard />
+            <FilmCard />
+            <FilmCard />
+            <FilmCard />
+            <FilmCard />
+            <FilmCard />
+            <FilmCard />
+            <FilmCard />
+            <FilmCard />
+            <FilmCard />
+            <FilmCard />
+            <FilmCard />
+            <FilmCard />
+            <FilmCard />
+            <FilmCard />
           </div>
 
           <div className="catalog__more">
