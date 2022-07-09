@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
 
-const FILM_CARD = {
+const FILM_DATA = {
   TITLE: 'The Grand Budapest Hotel',
   GENRE: 'Drama',
   YEAR: 2014,
@@ -15,9 +15,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <App
-      title={FILM_CARD.TITLE}
-      genre={FILM_CARD.GENRE}
-      year={FILM_CARD.YEAR}
+      title={FILM_DATA.TITLE}
+      genre={FILM_DATA.GENRE}
+      year={FILM_DATA.YEAR}
     />
   </React.StrictMode>,
 );
