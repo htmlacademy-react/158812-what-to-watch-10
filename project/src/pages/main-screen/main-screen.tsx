@@ -5,8 +5,18 @@ import Header from '../../components/header/header';
 type mainScreenProps = {
   title: string,
   genre: string,
-  year: number
+  year: number,
 };
+
+function someFilmCard(counterCard: number) {
+  const cards = [];
+  for (let i = 0; i < counterCard; i++) {
+    cards.push(<FilmCard key = {i}/>);
+  }
+  return cards;
+}
+
+const MOVIE_COUNT = 20;
 
 function MainScreen({title, genre, year}: mainScreenProps): JSX.Element {
   return (
@@ -123,22 +133,7 @@ function MainScreen({title, genre, year}: mainScreenProps): JSX.Element {
           </ul>
 
           <div className="catalog__films-list">
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
+            {someFilmCard(MOVIE_COUNT)}
           </div>
 
           <div className="catalog__more">
