@@ -4,11 +4,7 @@ function Header(): JSX.Element {
   return (
     <header className="page-header film-card__head">
 
-      <div className="logo">
-        <a className="logo__link">
-          <Logo />
-        </a>
-      </div>
+      <Logo />
 
       <ul className="user-block">
         <li className="user-block__item">
@@ -22,7 +18,7 @@ function Header(): JSX.Element {
           </div>
         </li>
         <li className="user-block__item">
-          <a className="user-block__link">Sign out</a>
+          <a className="user-block__link" href="/">Sign out</a>
         </li>
       </ul>
     </header>
