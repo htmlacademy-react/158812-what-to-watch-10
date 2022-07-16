@@ -1,4 +1,4 @@
-import FilmCard from '../../components/film-card/film-card';
+//import FilmCard from '../../components/film-card/film-card';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
 import {Film} from '../../types/films';
@@ -10,15 +10,15 @@ type MainScreenProps = {
   films: Film[],
 };
 
-function someFilmCard(counterCard: number) {
+/*function someFilmCard(counterCard: number) {
   const cards = [];
   for (let i = 0; i < counterCard; i++) {
     cards.push(<FilmCard key = {i}/>);
   }
   return cards;
-}
+}*/
 
-const MOVIE_COUNT = 20;
+//const MOVIE_COUNT = 20;
 
 function MainScreen({title, genre, year, films}: MainScreenProps): JSX.Element {
   return (
@@ -135,7 +135,7 @@ function MainScreen({title, genre, year, films}: MainScreenProps): JSX.Element {
           </ul>
 
           <div className="catalog__films-list">
-            {someFilmCard(MOVIE_COUNT)}
+
           </div>
 
           <div className="catalog__more">
