@@ -1,11 +1,13 @@
 import FilmCard from '../../components/film-card/film-card';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
+import {Film} from '../../types/films';
 
 type MainScreenProps = {
   title: string,
   genre: string,
   year: number,
+  films: Film[],
 };
 
 function someFilmCard(counterCard: number) {
@@ -18,7 +20,7 @@ function someFilmCard(counterCard: number) {
 
 const MOVIE_COUNT = 20;
 
-function MainScreen({title, genre, year}: MainScreenProps): JSX.Element {
+function MainScreen({title, genre, year, films}: MainScreenProps): JSX.Element {
   return (
     <>
       <div className="visually-hidden">
