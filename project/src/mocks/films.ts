@@ -1,12 +1,12 @@
 import {Film} from '../types/films';
 
-export const films: Film[] = [
+export const FILM_DATA: Film[] = [
   {
     id: 1,
     name: 'The Grand Budapest Hotel',
     posterImage: 'img/the-grand-budapest-hotel-poster.jpg',
     previewImage: 'img/the-grand-budapest-hotel-poster.jpg',
-    backgroundImage: 'img/the-grand-budapest-hotel-poster.jpg',
+    backgroundImage: 'img/bg-the-grand-budapest-hotel.jpg',
     backgroundColor: '',
     videoLink:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',

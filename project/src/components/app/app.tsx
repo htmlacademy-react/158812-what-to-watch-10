@@ -29,7 +29,7 @@ function App({title, genre, year, films}: AppScreenProps): JSX.Element {
 
         <Route
           path={AppRoute.Film}
-          element={<MoviePageInListScreen />}
+          element={<MoviePageInListScreen films={films} />}
         />
 
         <Route
@@ -53,7 +53,7 @@ function App({title, genre, year, films}: AppScreenProps): JSX.Element {
             <PrivateRoute
               authorizationStatus={AuthorizationStatus.NoAuth}
             >
-              <MyListScreen />
+              <MyListScreen films={films} />
             </PrivateRoute>
           }
         />
