@@ -2,6 +2,7 @@ import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import {Film} from '../../types/films';
 import {useParams, Link, useNavigate} from 'react-router-dom';
+import {AppRoute} from '../../const';
 
 type MoviePageScreenProps = {
   films: Film[]
@@ -13,14 +14,13 @@ function MoviePageScreen({films}: MoviePageScreenProps): JSX.Element {
   const id = `${(params.id ? params.id.slice(1) : '0')}`;
   const film = films.find((item) => item.id === Number.parseInt(id, 10)) || films[0];
 
-  const onPlayBtnClickHandler = () => {
+  const handlePlayBtnClick = () => {
     const path = `/player/:${film.id}`;
     navigate(path);
   };
 
-  const onMyListBtnClickHandler = () => {
-    const path = '/mylist';
-    navigate(path);
+  const handleMyListBtnClick = () => {
+    navigate(AppRoute.MyList);
   };
 
   return (
@@ -80,13 +80,13 @@ function MoviePageScreen({films}: MoviePageScreenProps): JSX.Element {
               </p>
 
               <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button" onClick={onPlayBtnClickHandler}>
+                <button className="btn btn--play film-card__button" type="button" onClick={handlePlayBtnClick}>
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
                   <span>Play</span>
                 </button>
-                <button className="btn btn--list film-card__button" type="button" onClick={onMyListBtnClickHandler}>
+                <button className="btn btn--list film-card__button" type="button" onClick={handleMyListBtnClick}>
                   <svg viewBox="0 0 18 14" width="18" height="14">
                     <use xlinkHref="#in-list"></use>
                   </svg>
