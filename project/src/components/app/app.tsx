@@ -34,7 +34,7 @@ function App({title, genre, year, films}: AppScreenProps): JSX.Element {
 
         <Route
           path={AppRoute.AddReview}
-          element={<AddReviewScreen />}
+          element={<AddReviewScreen films={films} />}
         />
 
         <Route
