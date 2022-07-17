@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
-import {FILM_DATA} from './mocks/films';
+import {FILMS_DATA} from './mocks/films';
 
-const FILM_PROMO = {
-  TITLE: 'The Grand Budapest Hotel',
-  GENRE: 'Drama',
-  YEAR: 2014,
+const AppProps = {
+  filmPromo: {
+    name: 'The Grand Budapest Hotel',
+    genre: 'Drama',
+    released: 2014,
+  },
 };
 
 const root = ReactDOM.createRoot(
@@ -16,10 +18,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <App
-      title={FILM_PROMO.TITLE}
-      genre={FILM_PROMO.GENRE}
-      year={FILM_PROMO.YEAR}
-      films={FILM_DATA}
+      filmPromo={AppProps.filmPromo}
+      films={FILMS_DATA}
     />
   </React.StrictMode>,
 );

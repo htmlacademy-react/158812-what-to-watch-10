@@ -2,15 +2,14 @@ import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
 import {Film} from '../../types/films';
 import FilmsList from '../../components/films-list/films-list';
+import {FilmPromo} from '../../types/filmPromo';
 
 type MainScreenProps = {
-  title: string,
-  genre: string,
-  year: number,
+  filmPromo: FilmPromo,
   films: Film[],
 };
 
-function MainScreen({title, genre, year, films}: MainScreenProps): JSX.Element {
+function MainScreen({filmPromo, films}: MainScreenProps): JSX.Element {
   return (
     <>
       <div className="visually-hidden">
@@ -61,10 +60,10 @@ function MainScreen({title, genre, year, films}: MainScreenProps): JSX.Element {
             </div>
 
             <div className="film-card__desc">
-              <h2 className="film-card__title">{title}</h2>
+              <h2 className="film-card__title">{filmPromo.name}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{genre}</span>
-                <span className="film-card__year">{year}</span>
+                <span className="film-card__genre">{filmPromo.genre}</span>
+                <span className="film-card__year">{filmPromo.released}</span>
               </p>
 
               <div className="film-card__buttons">

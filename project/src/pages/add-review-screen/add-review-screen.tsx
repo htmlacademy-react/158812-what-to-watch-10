@@ -9,7 +9,7 @@ type AddReviewScreenProps = {
 
 function AddReviewScreen({films}: AddReviewScreenProps): JSX.Element {
   const params = useParams();
-  const id = `${params.id}`;
+  const id = `${(params.id ? params.id.slice(1) : '0')}`;
   const film = films.find((item) => item.id === Number.parseInt(id, 10)) || films[0];
 
   return (
@@ -57,10 +57,10 @@ function AddReviewScreen({films}: AddReviewScreenProps): JSX.Element {
             <nav className="breadcrumbs">
               <ul className="breadcrumbs__list">
                 <li className="breadcrumbs__item">
-                  <Link to={`/films/${film.id}`} className="breadcrumbs__link">{film.name}</Link>
+                  <Link to={`/films/:${film.id}`} className="breadcrumbs__link">{film.name}</Link>
                 </li>
                 <li className="breadcrumbs__item">
-                  <Link className="breadcrumbs__link" to={`/films/${film.id}/review`}>Add review</Link>
+                  <Link className="breadcrumbs__link" to={`/films/:${film.id}/review`}>Add review</Link>
                 </li>
               </ul>
             </nav>

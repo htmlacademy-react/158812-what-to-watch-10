@@ -1,7 +1,7 @@
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import {Film} from '../../types/films';
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 
 type MoviePageInListScreenProps = {
   films: Film[]
@@ -9,7 +9,8 @@ type MoviePageInListScreenProps = {
 
 function MoviePageInListScreen({films}: MoviePageInListScreenProps): JSX.Element {
   const params = useParams();
-  const film = films.find((filmA) => String(filmA.id).includes(params.id ? params.id.slice(1) : '0')) as Film;
+  const id = `${(params.id ? params.id.slice(1) : '0')}`;
+  const film = films.find((item) => item.id === Number.parseInt(id, 10)) || films[0];
 
   return (
     <>
@@ -77,7 +78,7 @@ function MoviePageInListScreen({films}: MoviePageInListScreenProps): JSX.Element
                   <span>My list</span>
                   <span className="film-card__count">{films.length}</span>
                 </button>
-                <a href="add-review.html" className="btn film-card__button">Add review</a>
+                <Link to={`/films/:${film.id}/review`} className="btn film-card__button">Add review</Link>
               </div>
             </div>
           </div>
