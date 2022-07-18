@@ -1,24 +1,15 @@
-import FilmCard from '../../components/film-card/film-card';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
+import {Film} from '../../types/films';
+import FilmsList from '../../components/films-list/films-list';
+import {FilmPromo} from '../../types/filmPromo';
 
 type MainScreenProps = {
-  title: string,
-  genre: string,
-  year: number,
+  filmPromo: FilmPromo,
+  films: Film[],
 };
 
-function someFilmCard(counterCard: number) {
-  const cards = [];
-  for (let i = 0; i < counterCard; i++) {
-    cards.push(<FilmCard key = {i}/>);
-  }
-  return cards;
-}
-
-const MOVIE_COUNT = 20;
-
-function MainScreen({title, genre, year}: MainScreenProps): JSX.Element {
+function MainScreen({filmPromo, films}: MainScreenProps): JSX.Element {
   return (
     <>
       <div className="visually-hidden">
@@ -69,10 +60,10 @@ function MainScreen({title, genre, year}: MainScreenProps): JSX.Element {
             </div>
 
             <div className="film-card__desc">
-              <h2 className="film-card__title">{title}</h2>
+              <h2 className="film-card__title">{filmPromo.name}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{genre}</span>
-                <span className="film-card__year">{year}</span>
+                <span className="film-card__genre">{filmPromo.genre}</span>
+                <span className="film-card__year">{filmPromo.released}</span>
               </p>
 
               <div className="film-card__buttons">
@@ -87,7 +78,7 @@ function MainScreen({title, genre, year}: MainScreenProps): JSX.Element {
                     <use xlinkHref="#add"></use>
                   </svg>
                   <span>My list</span>
-                  <span className="film-card__count">9</span>
+                  <span className="film-card__count">{films.length}</span>
                 </button>
               </div>
             </div>
@@ -132,9 +123,7 @@ function MainScreen({title, genre, year}: MainScreenProps): JSX.Element {
             </li>
           </ul>
 
-          <div className="catalog__films-list">
-            {someFilmCard(MOVIE_COUNT)}
-          </div>
+          <FilmsList films={films}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

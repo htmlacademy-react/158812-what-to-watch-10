@@ -1,11 +1,29 @@
-function FilmCard(): JSX.Element {
+import {Link} from 'react-router-dom';
+import {Film} from '../../types/films';
+
+type FilmCardProps = {
+  film: Film,
+  activeFilmCard: number | undefined,
+  setActive: React.Dispatch<React.SetStateAction<number | undefined>>
+}
+
+function FilmCard({film, setActive, activeFilmCard}: FilmCardProps): JSX.Element {
+
+  const handleMouseEnter = () => {
+    setActive(film.id);
+  };
+
+  const handleMouseLeave = () => {
+    setActive(undefined);
+  };
+
   return (
-    <article className="small-film-card catalog__films-card">
+    <article className="small-film-card catalog__films-card" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <div className="small-film-card__image">
-        <img src="img/we-need-to-talk-about-kevin.jpg" alt="We need to talk about Kevin" width="280" height="175" />
+        <img src={film.previewImage} alt={film.name} width="280" height="175" />
       </div>
       <h3 className="small-film-card__title">
-        <a className="small-film-card__link" href="film-page.html">We need to talk about Kevin</a>
+        <Link className="small-film-card__link" to={`/films/:${film.id}`}>{film.name}</Link>
       </h3>
     </article>
   );

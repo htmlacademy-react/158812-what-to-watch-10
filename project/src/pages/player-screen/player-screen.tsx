@@ -1,4 +1,15 @@
-function PlayerScreen(): JSX.Element {
+import {Film} from '../../types/films';
+import {useParams} from 'react-router-dom';
+
+type PlayerScreenProps = {
+  films: Film[],
+}
+
+function PlayerScreen({films}: PlayerScreenProps): JSX.Element {
+  const params = useParams();
+  const id = `${(params.id ? params.id.slice(1) : '0')}`;
+  const film = films.find((item) => item.id === Number.parseInt(id, 10)) || films[0];
+
   return (
     <>
       <div className="visually-hidden">
@@ -31,7 +42,7 @@ function PlayerScreen(): JSX.Element {
       </div>
 
       <div className="player">
-        <video src="#" className="player__video" poster="img/player-poster.jpg"></video>
+        <video src={film.videoLink} className="player__video" poster={film.backgroundImage}></video>
 
         <button type="button" className="player__exit">Exit</button>
 
