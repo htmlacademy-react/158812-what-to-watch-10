@@ -1,10 +1,11 @@
 import {Link} from 'react-router-dom';
 import {Film} from '../../types/films';
+import {Dispatch, SetStateAction} from 'react';
 
 type FilmCardProps = {
   film: Film,
   activeFilmCard: number | undefined,
-  setActive: React.Dispatch<React.SetStateAction<number | undefined>>
+  setActive: Dispatch<SetStateAction<number | undefined>>
 }
 
 function FilmCard({film, setActive, activeFilmCard}: FilmCardProps): JSX.Element {
