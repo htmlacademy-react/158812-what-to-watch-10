@@ -26,7 +26,7 @@ function Tabs({film,reviews}: TabsProps): JSX.Element {
       <nav className="film-nav film-card__nav">
         <ul className="film-nav__list">
           {Object.keys(TabNames).map((tab) => (
-            <li key={tab} className="film-nav__item" onClick={() => handleClick(tab)}>
+            <li key={tab} className={`film-nav__item ${activeTab === tab ? 'film-nav__item--active' : ''}`} onClick={() => handleClick(tab)}>
               <Link to={'#'} className="film-nav__link">{tab}</Link>
             </li>
           ))}
