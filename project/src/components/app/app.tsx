@@ -10,13 +10,15 @@ import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 import PrivateRoute from '../private-route/private-route';
 import {FilmPromo} from '../../types/filmPromo';
 import {Film} from '../../types/films';
+import {Review} from '../../types/reviews';
 
 type AppScreenProps = {
   filmPromo: FilmPromo,
   films: Film[],
+  reviews: Review[]
 };
 
-function App({filmPromo, films}: AppScreenProps): JSX.Element {
+function App({filmPromo, films, reviews}: AppScreenProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
@@ -27,7 +29,7 @@ function App({filmPromo, films}: AppScreenProps): JSX.Element {
 
         <Route
           path={AppRoute.Film}
-          element={<MoviePageScreen films={films} />}
+          element={<MoviePageScreen films={films} reviews={reviews} />}
         />
 
         <Route

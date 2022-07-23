@@ -3,12 +3,15 @@ import Footer from '../../components/footer/footer';
 import {Film} from '../../types/films';
 import {useParams, Link, useNavigate} from 'react-router-dom';
 import {AppRoute} from '../../const';
+import Tabs from '../../components/tabs/tabs';
+import {Review} from '../../types/reviews';
 
 type MoviePageScreenProps = {
-  films: Film[]
+  films: Film[],
+  reviews: Review[]
 }
 
-function MoviePageScreen({films}: MoviePageScreenProps): JSX.Element {
+function MoviePageScreen({films, reviews}: MoviePageScreenProps): JSX.Element {
   const navigate = useNavigate();
   const params = useParams();
   const id = `${(params.id ? params.id.slice(1) : '0')}`;
@@ -106,35 +109,7 @@ function MoviePageScreen({films}: MoviePageScreenProps): JSX.Element {
             </div>
 
             <div className="film-card__desc">
-              <nav className="film-nav film-card__nav">
-                <ul className="film-nav__list">
-                  <li className="film-nav__item film-nav__item--active">
-                    <a href="/" className="film-nav__link">Overview</a>
-                  </li>
-                  <li className="film-nav__item">
-                    <a href="/" className="film-nav__link">Details</a>
-                  </li>
-                  <li className="film-nav__item">
-                    <a href="/" className="film-nav__link">Reviews</a>
-                  </li>
-                </ul>
-              </nav>
-
-              <div className="film-rating">
-                <div className="film-rating__score">{film.rating}</div>
-                <p className="film-rating__meta">
-                  <span className="film-rating__level">Very good</span>
-                  <span className="film-rating__count">{film.scoresCount} ratings</span>
-                </p>
-              </div>
-
-              <div className="film-card__text">
-                {film.description}
-
-                <p className="film-card__director"><strong>Director: {film.director}</strong></p>
-
-                <p className="film-card__starring"><strong>Starring: {film.starring}</strong></p>
-              </div>
+              <Tabs film={film} reviews={reviews}/>
             </div>
           </div>
         </div>
