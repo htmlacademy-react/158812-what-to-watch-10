@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
 import {FILMS_DATA} from './mocks/films';
+import {reviews} from './mocks/reviews';
 
 const AppProps = {
   filmPromo: {
@@ -20,6 +21,7 @@ root.render(
     <App
       filmPromo={AppProps.filmPromo}
       films={FILMS_DATA}
+      reviews={reviews}
     />
   </React.StrictMode>,
 );
