@@ -19,7 +19,7 @@ function MoviePageScreen({films, reviews}: MoviePageScreenProps): JSX.Element {
   const film = films.find((item) => item.id === Number.parseInt(id, 10)) || films[0];
 
   const filteredFilms = films
-    .filter((item) => (item.genre === film.genre && item.name !== film.name))
+    //.filter((item) => (item.genre === film.genre && item.name !== film.name))
     .slice(0, MORE_LIKE_FILM_COUNT);
 
   const handlePlayBtnClick = () => {
